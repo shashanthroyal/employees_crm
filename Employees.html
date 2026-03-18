@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Employees</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="dashboard.html">Employee CRM</a>
+          <button class="navbar-toggler"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="employees.html">Employees</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assessment.html">Assessment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mt-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="section-title m-0">Employee Directory</h1>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
+           Add Employee
+        </button>
+      </div>
+
+      <div class="search-container mb-4">
+        <input type="text" class="search-input" id="searchInput" placeholder=" Search by name, department, or role...">
+        <select class="form-select" id="filterDept" style="max-width: 200px;">
+          <option value="">All Departments</option>
+          <option value="Sales">Sales</option>
+          <option value="Marketing">Marketing</option>
+          <option value="IT">IT</option>
+          <option value="HR">HR</option>
+        </select>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Role</th>
+              <th>Clients</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="employeeTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addEmployeeLabel">Add New Employee</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="addEmployeeForm">
+              <div class="mb-3">
+                <label for="empName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="empName" required>
+              </div>
+              <div class="mb-3">
+                <label for="empDept" class="form-label">Department</label>
+                <select class="form-select" id="empDept" required>
+                  <option value="">Select Department</option>
+                  <option value="Sales">Sales</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="IT">IT</option>
+                  <option value="HR">HR</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="empRole" class="form-label">Role</label>
+                <input type="text" class="form-control" id="empRole" required>
+              </div>
+              <div class="mb-3">
+                <label for="empClients" class="form-label">Number of Clients</label>
+                <input type="number" class="form-control" id="empClients" min="0" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="saveEmployeeBtn">Save Employee</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center mt-5 py-4">
+      <p class="m-0">© 2024 Employee CRM System | <a href="#" class="text-decoration-none text-white">Privacy</a> | <a href="#" class="text-decoration-none text-white">Terms</a></p>
+    </footer>
+    <script src="JS/employees.js"></script>
+  </body>
+
+</html>

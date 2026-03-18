@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Employee Profile</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="dashboard.html">Employee CRM</a>
+          <button class="navbar-toggler"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="employees.html">Employees</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assessment.html">Assessment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="card animate-fade-in">
+            <div class="card-header" style=" color: white;">
+              <h2 class="card-title m-0"> Employee Profile</h2>
+            </div>
+            <div class="card-body">
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <h4 id="name" class="card-title mb-3"></h4>
+                  <dl class="row">
+                    <dt class="col-sm-4">Department:</dt>
+                    <dd class="col-sm-8"><span id="department" class="badge bg-info"></span></dd>
+                    
+                    <dt class="col-sm-4">Clients:</dt>
+                    <dd class="col-sm-8"><strong id="clients"></strong></dd>
+                    
+                    <dt class="col-sm-4">Status:</dt>
+                    <dd class="col-sm-8"><span id="empStatus" class="badge bg-success">Active</span></dd>
+                  </dl>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="card-title"> Assessment Score</h5>
+                  <div class="progress mb-2" style="height: 2.5rem;">
+                    <div id="progressBar" class="progress-bar bg-success" style="width: 0%">0%</div>
+                  </div>
+                  <p class="text-muted mb-3">Last assessment performance</p>
+                  <a href="assessment.html" class="btn btn-primary btn-sm">Take Assessment</a>
+                </div>
+              </div>
+
+              <hr>
+
+              <h5 class="mt-4 mb-3">Assigned Clients</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">✓ ABC Ltd</li>
+                <li class="list-group-item">✓ XYZ Pvt Ltd</li>
+                <li class="list-group-item">✓ Global Solutions Inc</li>
+              </ul>
+
+              <div class="mt-4">
+                <a href="employees.html" class="btn btn-secondary"> Back to Employees</a>
+                <button class="btn btn-warning" onclick="updateProfile()"> Edit Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center mt-5 py-4">
+      <p class="m-0">© 2024 Employee CRM System | <a href="#" class="text-decoration-none text-white">Privacy</a> | <a href="#" class="text-decoration-none text-white">Terms</a></p>
+    </footer>
+    <script src="JS/app.js"></script>
+  </body>
+
+</html>

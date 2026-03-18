@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Employee CRM Dashboard</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/storage.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand">Employee CRM</a>
+          <button class="navbar-toggler"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="employees.html">Employees</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assessment.html">Assessment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mt-5">
+      <h1 class="section-title animate-fade-in">Dashboard Overview</h1>
+      
+      <section class="row mb-5">
+        <div class="col-md-4 animate-slide-in">
+          <div class="stat-card">
+            <div class="stat-label"> Total Employees</div>
+            <div class="stat-number" id="totalEmployees">0</div>
+          </div>
+        </div>
+        <div class="col-md-4 animate-slide-in">
+          <div class="stat-card">
+            <div class="stat-label"> Active Employees</div>
+            <div class="stat-number" id="activeEmployees">0</div>
+          </div>
+        </div>
+        <div class="col-md-4 animate-slide-in">
+          <div class="stat-card">
+            <div class="stat-label"> Total Clients</div>
+            <div class="stat-number" id="totalClients">0</div>
+          </div>
+        </div>
+      </section>
+      <section class="mt-5 card p-4">
+        <h4 class="card-title"> Performance Progress</h4>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-success" style="width:70%">70%</div>
+        </div>
+        <p class="text-muted">Overall team performance and productivity metrics</p>
+      </section>
+      <section class="mt-5 card p-4">
+        <h4 class="card-title"> Recent Activities</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" > Employee Rahul completed assessment</li>
+          <li class="list-group-item"> New client assigned to Marketing team</li>
+          <li class="list-group-item"> Performance updated</li>
+          <li class="list-group-item"> New employee onboarded</li>
+          <li class="list-group-item"> Team goals updated</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="text-center mt-5">
+      <p class="m-0">© 2024 Employee CRM System | <a href="#" class="text-decoration-none text-white">Privacy</a> | <a href="#" class="text-decoration-none text-white">Terms</a></p>
+    </footer>
+
+    <script>
+      $(document).ready(function() {
+        if (!localStorage.getItem("employees")) {
+          const defaultEmployees = [
+            { id: "101", name: "Rahul Sharma", department: "Sales", role: "Manager", clients: 5, active: true },
+            { id: "102", name: "Ananya Gupta", department: "Marketing", role: "Executive", clients: 3, active: true },
+            { id: "103", name: "Rohit Verma", department: "IT", role: "Developer", clients: 2, active: false }
+          ];
+          localStorage.setItem("employees", JSON.stringify(defaultEmployees));
+        }
+
+        const employees = JSON.parse(localStorage.getItem("employees"));
+        const totalEmployees = employees.length;
+        const activeEmployees = employees.filter(e => e.active).length;
+        const totalClients = employees.reduce((sum, e) => sum + e.clients, 0);
+
+        $("#totalEmployees").text(totalEmployees);
+        $("#activeEmployees").text(activeEmployees);
+        $("#totalClients").text(totalClients);
+      });
+    </script>
+</body>
+
+</html>
