@@ -92,7 +92,7 @@ $("#submitQuiz").click(function() {
       <h4>Grade: <span class="badge bg-warning text-dark">${grade}</span></h4>
       <p class="lead mt-4">${feedback}</p>
       <button class="btn btn-primary mt-3" onclick="location.reload()">🔄 Retake</button>
-      <a href="dashboard.html" class="btn btn-secondary mt-3">📊 Dashboard</a>
+      <a href="index.html" class="btn btn-secondary mt-3">📊 Dashboard</a>
     </div>
   `;
 
