@@ -90,7 +90,7 @@ function setupEventListeners() {
   $(document).on("click", ".viewProfile", function() {
     let id = $(this).data("id");
     localStorage.setItem("selectedEmployee", id);
-    window.location = "profile.html";
+    window.location = "Profile.html";
   });
 
   $(document).on("click", ".deleteEmployee", function() {
